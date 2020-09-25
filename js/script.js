@@ -1,3 +1,6 @@
+/* eslint-disable no-inner-declarations */
+/* eslint-disable semi */
+/* eslint-disable indent */
 {
     'use strict';
     
