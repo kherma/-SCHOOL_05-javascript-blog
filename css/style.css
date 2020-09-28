@@ -108,7 +108,7 @@ body {
   margin: 0 10px 0 0;
 }
 
-/* Tag list */
+/* Tag List */
 ul.tags li {
   display: inline-block;
   margin-left: 4px;
@@ -141,5 +141,12 @@ ul.tags li {
 .tag-size-5 {
   font-size: 2em;
   color: #111;
+}
+
+/* Author List */
+ul.authors a {
+  color: #222;
+  font-size: 1.2em;
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */
