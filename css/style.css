@@ -107,4 +107,39 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+/* Tag list */
+ul.tags li {
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.tag-size {
+  text-decoration: none;
+}
+
+.tag-size-1 {
+  font-size: 1em;
+  color: #999;
+}
+
+.tag-size-2 {
+  font-size: 1.2em;
+  color: #777;
+}
+
+.tag-size-3 {
+  font-size: 1.4em;
+  color: #555;
+}
+
+.tag-size-4 {
+  font-size: 1.6em;
+  color: #333;
+}
+
+.tag-size-5 {
+  font-size: 2em;
+  color: #111;
+}
 /*# sourceMappingURL=style.css.map */
