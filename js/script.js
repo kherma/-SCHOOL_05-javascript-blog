@@ -10,7 +10,8 @@
     const templates = { 
         articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
         articleTag: Handlebars.compile(document.querySelector('#template-article-tag').innerHTML),
-        articleAuthor: Handlebars.compile(document.querySelector('#template-article-author').innerHTML)
+        articleAuthor: Handlebars.compile(document.querySelector('#template-article-author').innerHTML),
+        tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML)
     } 
 
     const titleClickHandler = function(event){
@@ -157,21 +158,28 @@
             const tagsParams = calculateTagsParams(allTags);
 
             /* [NEW] create variable for all links HTML code */
-            let allTagsHTML = '';
+            const allTagsData = { tags: [] };
 
             /* [NEW] START LOOP: for each tag in allTags: */
             for(let tag in allTags){
             /* [NEW] generate code of a link and add it to allTagsHTML */
             // const tagLinkHTML = '<li><a href="#tag-' + tag + '" class="tag-size ' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + '</a> <span>' + ' (' + allTags[tag] + ') ' + '</span></li>';
             
-            const tagLinkHTML = '<li><a href="#tag-' + tag + '" class="tag-size ' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + '</a></li>';
+            // Module 7.4 Handlebars Modyfied
+            // const tagLinkHTML = '<li><a href="#tag-' + tag + '" class="tag-size ' + calculateTagClass(allTags[tag], tagsParams) +'">' + tag + '</a></li>';
+                allTagsData.tags.push({
+                    tag: tag,
+                    count: allTags[tag],
+                    className: calculateTagClass(allTags[tag], tagsParams),
+                });
 
-            allTagsHTML += tagLinkHTML;
+            //   allTagsHTML += tagLinkHTML;
             } /* [NEW] END LOOP: for each tag in allTags: */
 
+            // Module 7.4 Handlebars Modyfied
             /*[NEW] add HTML from allTagsHTML to tagList */
-            tagList.innerHTML = allTagsHTML;
-            
+            // tagList.innerHTML = allTagsHTML;
+            tagList.innerHTML = templates.tagCloudLink(allTagsData);
         } /* END LOOP: for every article: */
       }
       
