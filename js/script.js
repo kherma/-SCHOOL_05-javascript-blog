@@ -5,7 +5,14 @@
     'use strict';
     
     // document.getElementById('test-button').addEventListener('click', function(){const links = document.querySelectorAll('.titles a'); console.log('links: ', links);});
-    
+
+    //Handlebars Module 7.4
+    const templates = { 
+        articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+        articleTag: Handlebars.compile(document.querySelector('#template-article-tag').innerHTML),
+        articleAuthor: Handlebars.compile(document.querySelector('#template-article-author').innerHTML)
+    } 
+
     const titleClickHandler = function(event){
         event.preventDefault();
         const clickedElement = this;
@@ -66,8 +73,10 @@
             /* find the title element */
             const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
-            /* create HTML of the link */
-            const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+            // Module 7.4 Handlebars Modyfied
+            // const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>'; /* create HTML of the link */
+            const linkHTMLData = {id: articleId, title: articleTitle}; 
+            const linkHTML = templates.articleLink(linkHTMLData);
  
             /* insert link into titleList */
             // titleList.innerHTML = titleList.innerHTML + linkHTML;
@@ -123,7 +132,11 @@
       
             for (let tag of articleTagsArray) { /* START LOOP: for each tag */
                 // console.log(tag);
-                const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>'; /* generate HTML of the link */
+                // const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>'; /* generate HTML of the link */
+                
+                // Module 7.4 Halndlebars Modyfied
+                const linkHTMLData = {id: tag, title: tag};
+                const tagHTML = templates.articleTag(linkHTMLData);
                 // console.log(tagHTML);
 
                 html += tagHTML /* add generated code to html variable */
@@ -203,7 +216,9 @@
             let html = '';
             const author = article.getAttribute('data-author');
             // console.log(author);
-            const authorLinkHTML = '<a href="#author-' + author + '"><span>by ' + author + '</span></a>';
+            // const authorLinkHTML = '<a href="#author-' + author + '"><span>by ' + author + '</span></a>';
+            const linkHTMLData = {id: author, title: author};
+            const authorLinkHTML = templates.articleAuthor(linkHTMLData);
             html += authorLinkHTML;
             authorWrapper.innerHTML = html;
 
