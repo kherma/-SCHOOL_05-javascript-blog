@@ -245,8 +245,14 @@
           <li><a href="#tag-{{ tag }}" class="tag-size {{className}}">{{ tag }}</a></li>
           {{/each}}
         </script>
-        
 
+        <!-- Author list template -->
+        <script id="template-author-list-link" type="text/x-handlebars-template">
+          {{#each authors}}
+          <li><a href="#author-{{ author }}">{{ author }} ({{ counter }})</a></li>
+          {{/each}}
+        </script>
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
         <script src="js/script.js"></script>
     </body>
