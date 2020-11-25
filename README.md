@@ -1,5 +1,4 @@
 # -SCHOOL_05-javascript-blog
 
-## Practice Project - course project;
-## Side Project - personal project;
 ## School Project - homework project;
+## You can check it here: https://gracious-gates-17f7b8.netlify.app/
